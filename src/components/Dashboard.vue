@@ -29,7 +29,7 @@
                             <p class="lead">Welcome to your Verry Personal Banking</p>
                              <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" 
                                 style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
-                                <p>Current Balance <span><h4 style="color: green">$2000</h4></span></p>
+                                <p>Current Balance <span><h4 style="color: green">${{ currentBalance }}</h4></span></p>
                                 <button type="button" class="btn btn-outline-dark p-4"
                                  data-toggle="modal" data-target="#exampleModal">Bet on my Balance</button>
                         </div>
@@ -37,9 +37,7 @@
                 </div>
             </div>
 
-
-
-            <!-- Modal -->
+                        <!-- Modal -->
 <div class="modal p-5 fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -52,7 +50,7 @@
       <div class="modal-body">
           <div class="row">
             <div class="col text-left">
-                 <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">$2000</span></h1>
+                 <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">${{ currentBalance }}</span></h1>
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Amount</label>
@@ -60,8 +58,17 @@
                     <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                 </div>
                
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = 1000">Submit</button>
              </form>
+
+            <div class="card w-100 mt-2" v-if="isSubmit">
+                <div class="card-body shadow-lg">
+                    <p class="card-title">You have Succesfully bet on your Personal Account!</p>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                </div>
+                </div>
+
+
             </div>
           </div>
       </div>
@@ -73,68 +80,75 @@
   </div>
 </div>
 
+<div class="row">
+    <div class="col p-5">
+                    <ul class="nav justify-content-center bg-white">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-toggle="modal" data-target="#activeBets">Active bets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#historyBets">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">More Options</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Cancel my bet</a>
+                    </li>
+                    </ul>
+    </div>
+</div>
 
 
-<!-- Carousel  -->
-            <div class="row mt-5">
-                <div class="col font-weight-bold">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner" style="border-radius: 50px">
-                            <div class="carousel-item active">
-                              <div class="card shadow-sm">
-                                <div class="card-body p-5" style="background-color: #0764C1">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>VISA</p>
-                                            <p>Choose your next Card</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>         
-                            </div>
-                            <div class="carousel-item">
-                               <div class="card shadow-sm">
-                                 <div class="card shadow-sm">
-                                <div class="card-body p-5" style="background-color: #ACCF5C">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>MASTER CARD</p>
-                                            <p>Our customers love this!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>    
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                        <div class="card shadow-sm">
-                               <div class="card-body p-5" style="background-color: #2A044A">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>SOMETHING</p>
-                                            <p>This is something else</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
+
+            <!-- Modal Active Bets -->
+            <div class="modal fade" id="activeBets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                Your Active Bets are Listed Here:
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
                 </div>
             </div>
+            </div>
+
+
+                        <!-- Modal History Bets -->
+            <div class="modal fade" id="historyBets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                Your History Bets are Listed Here
+                Your History Bets are Listed Here
+                Your History Bets are Listed Here
+                Your History Bets are Listed Here
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal"  class="btn btn-primary">I'm OK!</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
 
             <div class="row">
                 <div class="col mt-5">
@@ -242,6 +256,12 @@ import Bars from "vuebars";
 Vue.use(Bars);
 
 export default {
+  data() {
+    return {
+      isSubmit: false,
+      currentBalance: 2000
+    };
+  },
   mounted() {
     console.log("message");
   }
