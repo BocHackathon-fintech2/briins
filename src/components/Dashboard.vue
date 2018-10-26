@@ -13,12 +13,66 @@
                     <a class="nav-link" href="#">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">V.0.1</a>
+                    <a class="nav-link disabled" href="#">V.0.1 <span class="badge badge-secondary">Beta</span></a>
                 </li>
                 </ul>
         </nav>
 
         <div class="container">
+
+            <div class="row">
+                <div class="col mt-3">
+                            
+                    <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
+                        <div class="container">
+                            <h1 class="display-4">Kyriakos Michael</h1>
+                            <p class="lead">Welcome to your Verry Personal Banking</p>
+                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" 
+                                style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
+                                <p>Current Balance <span><h4 style="color: green">$2000</h4></span></p>
+                                <button type="button" class="btn btn-outline-dark p-4"
+                                 data-toggle="modal" data-target="#exampleModal">Bet on my Balance</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
+
+
+
+            <!-- Modal -->
+<div class="modal p-5 fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bet on my Balance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col text-left">
+                 <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">$2000</span></h1>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Amount</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Submit</button>
+             </form>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-success p-3">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- Carousel  -->
@@ -182,21 +236,21 @@
 </template>
 
 <script>
-    import Vue from 'vue'
-    import Bars from 'vuebars'
+import Vue from "vue";
+import Bars from "vuebars";
 
-    Vue.use(Bars)
+Vue.use(Bars);
 
-    export default {
-        mounted() {
-            console.log("message");
-        }
-    };
+export default {
+  mounted() {
+    console.log("message");
+  }
+};
 </script>
 
 <style scoped>
-    .main-navbar {
-        border: 1px solid #EDF2F4;
-        background-color: #FFFFFF;
-    }
+.main-navbar {
+  border: 1px solid #edf2f4;
+  background-color: #ffffff;
+}
 </style>
