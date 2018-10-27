@@ -1,8 +1,10 @@
 <template>
   <div id="app">
 
-   
-<Dashboard />
+   <router-view></router-view>
+
+   <!-- URL of the App :  http://localhost:8080/#/main -->
+<!-- <Dashboard /> -->
 
       <!-- <Login /> -->
   </div>

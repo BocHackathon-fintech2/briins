@@ -8,6 +8,6 @@ export default[
     },
 
     {
-        path: '/dashbaord', component: Dashboard
+        path: '/main', component: Dashboard
     }
 ]

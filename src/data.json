@@ -1,0 +1,22 @@
+[{
+    "balances": [{
+        "amo nt": 1000,
+        "balanceType":  "AVAILABLE"
+    }, {
+        "amo nt": 1000,
+        "balanceType": "C RRENT"
+    }],
+      "mat rityDate":   "19/11/2018",
+      "interestRate": 0,
+      "lastPaymentDate":   "19/11/2017",
+      "remainingInstallments": 10,
+      "acco ntName":   "ANDREAS MICHAEL",
+      "c rrency":   "E R",
+      "IBAN":   "CY11002003510000000012345671",
+      "acco ntType":   "C RRENT",
+      "bankId":   "12345671",
+      "infoTimeStamp":   "1511779237",
+      "acco ntAlias":   "ANDREAS",
+      "nextPaymentDate":   "19/12/2017",
+      "acco ntId":   "351012345671"
+}]

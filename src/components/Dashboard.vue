@@ -48,7 +48,7 @@
         <div class="container w3-container w3-center w3-animate-bottom">
             <div class="w3-animate-opacity">
                 <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
-                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#">release.ebank.com</a></p>
+                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.ebank.com</a></p>
             </div>
             <div class="row">
                 <div class="col mt-3">
@@ -336,7 +336,7 @@ export default {
   data() {
     return {
       colorx: "#4a5153",
-      data: {},
+      data: "",
       popupActivo5: false,
       isSubmit: false,
       currentBalance: 2000,
@@ -367,72 +367,14 @@ export default {
           username: "Antonette",
           email: "Shanna@melissa.tv",
           website: "anastasia.net"
-        },
-        {
-          id: 3,
-          name: "Clementine Bauch",
-          username: "Samantha",
-          email: "Nathan@yesenia.net",
-          website: "ramiro.info"
-        },
-        {
-          id: 4,
-          name: "Patricia Lebsack",
-          username: "Karianne",
-          email: "Julianne.OConner@kory.org",
-          website: "kale.biz"
-        },
-        {
-          id: 5,
-          name: "Chelsey Dietrich",
-          username: "Kamren",
-          email: "Lucio_Hettinger@annie.ca",
-          website: "demarco.info"
-        },
-        {
-          id: 6,
-          name: "Mrs. Dennis Schulist",
-          username: "Leopoldo_Corkery",
-          email: "Karley_Dach@jasper.info",
-          website: "ola.org"
-        },
-        {
-          id: 7,
-          name: "Kurtis Weissnat",
-          username: "Elwyn.Skiles",
-          email: "Telly.Hoeger@billy.biz",
-          website: "elvis.io"
-        },
-        {
-          id: 8,
-          name: "Nicholas Runolfsdottir V",
-          username: "Maxime_Nienow",
-          email: "Sherwood@rosamond.me",
-          website: "jacynthe.com"
-        },
-        {
-          id: 9,
-          name: "Glenna Reichert",
-          username: "Delphine",
-          email: "Chaim_McDermott@dana.io",
-          website: "conrad.com"
-        },
-        {
-          id: 10,
-          name: "Clementina DuBuque",
-          username: "Moriah.Stanton",
-          email: "Rey.Padberg@karina.biz",
-          website: "ambrose.net"
         }
       ]
     };
   },
-
-  created() {},
   mounted() {
     axios
-      .get(`http://localhost:5000/token`, {})
-      .then(response => console.log(response))
+      .get(`http://localhost:5000/token`)
+      .then(response => this.data, console.log("data" + this.data))
       .catch(e => {
         this.errors.push(e);
       });
