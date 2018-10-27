@@ -1,32 +1,30 @@
 <template>
   <div id="app">
 
-    <router-view ></router-view>
-
-
-
+   
+<Dashboard />
 
       <!-- <Login /> -->
   </div>
 </template>
 
 <script>
-import Dashboard from './components/Dashboard.vue'
+import Dashboard from "./components/Dashboard.vue";
 
 import Login from "./components/Login";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     Dashboard,
     Login
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

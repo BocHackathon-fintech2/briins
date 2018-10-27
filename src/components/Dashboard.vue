@@ -428,19 +428,15 @@ export default {
     };
   },
 
-  created() {
-  
-  },
-  mounted () {
-        axios
-      .get(`http://localhost:5000/token`, {
-      })
-      .then(response => this.data, console.log(this.data))
+  created() {},
+  mounted() {
+    axios
+      .get(`http://localhost:5000/token`, {})
+      .then(response => console.log(response))
       .catch(e => {
         this.errors.push(e);
       });
-
-  },
+  }
 };
 </script>
 
