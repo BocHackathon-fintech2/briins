@@ -30,7 +30,7 @@
                             <h1 class="display-4">Kyriakos Michael</h1>
                             <p class="lead">Welcome to your Verry Personal Banking</p>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
-                            <p><i class="fas fa-money-check-alt fa-3x"></i> Current Balance <span><h4 style="color: green">${{ currentBalance }}</h4></span></p>
+                            <p><i class="fas fa-money-check-alt fa-2x mt-2"></i> Current Balance <span><h2 style="color: green">${{ currentBalance }}</h2></span></p>
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Invest on my Balance</button>
                             <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Subscription</button>
@@ -301,7 +301,8 @@ import Bars from "vuebars";
 import axios from "axios";
 import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css";
-
+import VueRouter from 'vue-router';
+Vue.use(VueRouter)
 import "material-icons/iconfont/material-icons.css";
 Vue.use(Vuesax);
 Vue.use(Bars);
