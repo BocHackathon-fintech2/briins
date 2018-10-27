@@ -14,7 +14,7 @@
                     <a class="nav-link" href="#">My Account</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-bell" style="color: black"></i></a>
+                    <a class="nav-link" href="#" :color="colorx" @click="popupActivo5=true" type="filled" ><i class="fas fa-bell" style="color: black"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-envelope" style="color: blue"></i></a>
@@ -24,26 +24,23 @@
                 </li>
 
                  <li class="nav-item ml-5">
-                     <a href="#" class="nav-link" :color="colorx" @click="popupActivo5=true" type="filled" ><i class="fas fa-power-off" style="color: black"></i></a>
+                     <a href="http://localhost:8081/#/" class="nav-link"><i class="fas fa-power-off" style="color: black"></i></a>
                 </li>
             </ul>
         </nav>
 
 
                         <div class="centerx">
-                    <input v-model="colorx" type="color" name="" value="">
-                    <vs-button :color="colorx" @click="popupActivo5=true" type="filled">Open background popup</vs-button>
-
                     <vs-popup
                     style="color:rgb(255,255,255)"
                     background-color="rgba(255,255,255,.6)"
-                    :background-color-popup="colorx" title="background" :active.sync="popupActivo5">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        <br>
-                        <br>
-                        e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
+                    :background-color-popup="colorx" title="Alerts & Notifications" :active.sync="popupActivo5">
+                        <vs-list>
+                        <vs-list-header title="GDPR"></vs-list-header>
+                        <vs-list-item subtitle="An Important notice"></vs-list-item>
+                        <vs-list-header title="Terms & Conditions" color="success"></vs-list-header>
+                        <vs-list-item subtitle="We are updating our Term & Condition coming this fall"></vs-list-item>
+                        </vs-list>
                     </vs-popup>
                 </div>
 
@@ -102,7 +99,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Amount</label>
-                                            <input v-model="calculateBalance" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
+                                            <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
@@ -127,62 +124,32 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col p-5 font-weight-bold">
-                    <ul class="nav justify-content-center bg-white">
-                        <li class="nav-item">
-                            <a class="nav-link active bet-links" href="#" data-toggle="modal" data-target="#activeBets" style="color: black; background-color: 70C1B3;">Active bets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bet-links" href="#" data-toggle="modal" data-target="#historyBets" style="color: black">History</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bet-links" href="#" style="color: black">More Options</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                <vs-tabs vs-alignment="fixed">
+                        <vs-tab vs-label="Active Bets">
+                            <div>
+                                 <vs-list>
+                                    <vs-list-header icon="supervisor_account" title="Active"></vs-list-header>
+                                    <vs-list-item icon="check" title="$1000" subtitle="An excellent Investment"></vs-list-item>
+                                    <p>3 Days Ago</p>
+                                    <vs-list-item icon="check" title="$2000" subtitle="This is for your Personal Car Loan"></vs-list-item>  
+                                    <p>57 Days Ago</p>                              
+                                </vs-list>
+                            </div>
+                        </vs-tab>
+                        <vs-tab vs-label="History">
+                            <div>
 
-            <!-- Modal Active Bets -->
-            <div class="modal fade" id="activeBets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Your Active Bets are Listed Here:
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                        </vs-tab>
+                        <vs-tab vs-label="Options">
+                            <div>
 
-            <!-- Modal History Bets -->
-            <div class="modal fade" id="historyBets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Your History Bets are Listed Here Your History Bets are Listed Here Your History Bets are Listed Here Your History Bets are Listed Here
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn btn-primary">I'm OK!</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                        </vs-tab>
+                        
+                </vs-tabs> 
 
+           
             <div class="row">
                 <div class="col mt-5">
                     <h1 class="display-4 text-center">Your Top Spendings</h1>
@@ -368,6 +335,9 @@ Vue.use(Bars);
 export default {
   data() {
     return {
+      colorx: "#4a5153",
+      data: {},
+      popupActivo5: false,
       isSubmit: false,
       currentBalance: 2000,
       active: false,
@@ -457,47 +427,20 @@ export default {
       ]
     };
   },
-  computed: {
-    currentBalance() {
-      return (this.currentBalance = this.currentBalance - 200);
-    }
-  },
+
   created() {
-    axios
-      .post(
-        `https://sandbox-apis.bankofcyprus.com/df-boc-org-sb/sb/psd2/oauth2/token`,
-        {
-          body: {
-            client_id: `48bc5241-c3b2-4065-825c-316faa72fdb6`,
-            client_secret: `dY5aH2yY8fB6yH1hH7eO3bS6pK5qK4bH3oW5pU8yL5iY6kC8vJ`,
-            grant_type: `client_credentials`,
-            scope: `TPPOAuth2Security`
-          },
-          headers: {
-            "Content-type": "application/x-www-form-urlencoded"
-          }
-        }
-      )
-      .then(response => {
-        console.log(response);
+  
+  },
+  mounted () {
+        axios
+      .get(`http://localhost:5000/token`, {
       })
+      .then(response => this.data, console.log(this.data))
       .catch(e => {
         this.errors.push(e);
-        console.log(errors);
       });
+
   },
-  methods: {
-    openLoading(type) {
-      this.activeLoading = true;
-      this.$vs.loading({
-        type: type
-      });
-      setTimeout(() => {
-        this.activeLoading = false;
-        this.$vs.loading.close();
-      }, 3000);
-    }
-  }
 };
 </script>
 
