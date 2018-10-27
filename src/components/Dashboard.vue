@@ -1,16 +1,16 @@
 <template v-cloak>
     <div>
-        <nav class="navbar fixed-top  main-navbar font-weight-bold" style="color: white">
-            
-            <img class="navbar-brand" width="10%" src="../assets/white.png" />
+        <nav class="navbar fixed-top shadow-lg  main-navbar font-weight-bold" style="color: white">
+              <a class="navbar-brand" href="#">Zero</a>
+            <!-- <img class="navbar-brand" width="10%" src="../assets/white.png" /> -->
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Jeniffer Lopez</a>
+                    <a class="nav-link active" href="#">Jeniffer Lopez <span class="badge badge-secondary" style="background-color: green">Active</span></a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="#">My Account</a>
                 </li>
@@ -30,8 +30,7 @@
             </ul>
         </nav>
 
-
-                        <div class="centerx">
+                 <div class="centerx">
                     <vs-popup
                     style="color:rgb(255,255,255)"
                     background-color="rgba(255,255,255,.6)"
@@ -45,30 +44,30 @@
                     </vs-popup>
                 </div>
 
-        <div class="container w3-container w3-center w3-animate-bottom">
+        <div class="container-fluid w3-container w3-center w3-animate-bottom">
             <div class="row">
                 <div class="col mt-3">
                     <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
                         <div class="container-fluid">
                             <h1 class="display-4">Jeniffer Lopez</h1>
-                            <p class="lead">Welcome to your Verry Personal Banking</p>
+                            <p class="lead">Welcome to your Zero Banking</p>
+                            <p>Last Login: 27/10/2018</p>
                              <div class="w3-animate-opacity mt-1">
                 <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
-                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.ebank.com</a></p>
-                 <p style="font-size: 4px">© 2018 Zero Financial, Inc. All rights reserved.
-                    “Zero” and “Zerocard” are trademarks of Zero Financial, Inc., 230 California St, Suite 500, San Francisco, CA 94111.
-                    All text, graphics, audio files, code, downloadable material, and other works on this web site are the copyrighted works of Zero Financial, Inc. All Rights Reserved. Any unauthorized redistribution or reproduction of any copyrighted materials on this web site is strictly prohibited. Other product and company names are trademarks of their respective owners. This web site contains simulated images; actual appearance may vary.
-                    </p>
+                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.zero.co</a></p>
             </div>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -200px; left: -550px; width: 10%;" />
                               <vs-divider color="success">Current Balance</vs-divider>
-                            <h1><span class="badge badge-secondary p-3">$20000</span></h1>
+                            <h1><span class="badge badge-secondary p-3">$200000</span></h1>
                              <vs-divider color="dark">Actions</vs-divider>
+                             <div class="row">
+                             <div class="col-lg">
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal">Invest on my Balance</button>
                             <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#instantModal">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal">Subscription</button>
                             <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal">e-Invoicing</button>
-
+                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,8 +117,6 @@
                 </div>
             </div>
 
-
-
             <!-- Instant Loan Modal -->
             <div class="modal p-5 fade" id="instantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -142,9 +139,6 @@
                     </div>
                 </div>
             </div>
-
-
-
                 <!-- Subsrciption Modal -->
             <div class="modal p-5 fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -168,7 +162,6 @@
                 </div>
             </div>
 
-
                 <!-- e-invoicing Modal -->
             <div class="modal p-5 fade" id="invoicingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -180,8 +173,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
-                               
+                            <div class="row">                               
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -228,13 +220,13 @@
 <vs-divider color="rgb(29, 222, 194)">Overview</vs-divider>
 
             <div class="row">
+              <p class="text-monospace"><i>We are using Advance Machine Learning so we can Provide accurate Spending Descriptions</i></p>
                 <div class="card-group mt-5 shadow-lg text-center" style="border-radius: 50px">
                     <div class="card">
                         <img class="card-img-top w-100 rounded mx-auto d-block" src="https://jobapplications.net/wp-content/uploads/starbucks-logo-icon.png" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Starbucks</h5>
                             <p class="card-text">Mostly Coffee and Snacks.</p>
-
                             <h2 class="card-text">- $200</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 3 mins ago</small></p>
@@ -247,7 +239,6 @@
                         <div class="card-body">
                             <h5 class="card-title">Zara</h5>
                             <p class="card-text">Mostly shoes</p>
-
                             <h2 class="card-text">- $500</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 20 mins ago</small></p>
@@ -259,7 +250,6 @@
                         <div class="card-body mt-5">
                             <h5 class="card-title">Apple</h5>
                             <p class="card-text">Congrats! You bought a macbook pro!</p>
-
                             <h2 class="card-text">- $1000</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 3 hrs ago</small></p>
@@ -272,43 +262,52 @@
             <div class="container-fluid">
                 <div class="row mb-5 mt-5">
                     <div class="col">
-                        <div class="card" style="border-radius: 50px;">
-                            <div class="card-body">
-                                <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
-                                </bars>
-                                <div class="card-footer" style="background-color: transparent">
-                                    <p class="card-text">An Overview of your Agresivness of spendings</p>
-                                </div>
-                            </div>
-                        </div>
+                         <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
+                        </bars>
+
+                         <bars :data="[6, 1, 8, 7, 9, 9, 4, 2, 0, 10,]" :gradient="['#679436', '#E55454']">
+                        </bars>
+
+                         <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
+                        </bars>
+
+                         <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
+                        </bars>
+
                     </div>
+                     
+
+                    <div class="col">
+                                 <trend
+                            :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                            auto-draw
+                            smooth>
+                            </trend>
+                                <trend
+                            :data="[6, 1, 8, 7, 9, 9, 4, 2, 0, 10,]"
+                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                            auto-draw
+                            smooth>
+                            </trend>
+
+                               <trend
+                            :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                            auto-draw
+                            smooth>
+                            </trend>
+
+                               <trend
+                            :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
+                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
+                            auto-draw
+                            smooth>
+                            </trend>
+
+                        </div>
                 </div>
             </div>
-
-            <div id="app">
-    <h2>Spendings Analytics</h2>
-    <!-- id - Every chart must have an id. -->
-    <!-- title - The title displayed on the chart -->
-    <!-- type - The type of chart: line, bar, percent, pie, or axis-mixed. -->
-    <!-- labels - Names for each value on the x-axis. -->
-    <!-- height- Optional: How tall the chart should be. -->
-    <!-- colors - Separate colors for each dataset. -->
-    <!-- lineOptions - Additional options for how to display line charts. See docs. -->
-    <!-- datasets - An array of objects containing names and values for each data set. -->
-    <vue-frappe
-      id="my-chart-id"
-      type="line"
-      :labels="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']"
-      :height="350"
-      :colors="['#008F68', '#FAE042']"
-      :lineOptions="{regionFill: 1}"
-      :data-sets="[
-        {name: '2017', values: benedictsWeight2017},
-        {name: '2018', values: benedictsWeight2018}
-      ]"></vue-frappe>
-  </div>
-
-
 
   <vs-divider color="dark"> Latest History</vs-divider>
 
@@ -419,6 +418,9 @@ import axios from "axios";
 import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css";
 import VueRouter from "vue-router";
+import Trend from "vuetrend";
+
+Vue.use(Trend);
 
 import VueFrappe from "vue2-frappe";
 Vue.use(VueFrappe);
