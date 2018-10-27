@@ -1,11 +1,12 @@
 <template v-cloak>
     <div>
-        <nav class="navbar fixed-top navbar-light main-navbar font-weight-bold">
-            <a class="navbar-brand" href="#">Ebank</a>
+        <nav class="navbar fixed-top  main-navbar font-weight-bold" style="color: white">
+            
+            <img class="navbar-brand" width="10%" src="../assets/white.png" />
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Kyriakos Michael</a>
+                    <a class="nav-link active" href="#">Jeniffer Lopez</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
@@ -14,17 +15,17 @@
                     <a class="nav-link" href="#">My Account</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="#" :color="colorx" @click="popupActivo5=true" type="filled" ><i class="fas fa-bell" style="color: black"></i></a>
+                    <a class="nav-link" href="#" :color="colorx" @click="popupActivo5=true" type="filled" ><i class="fas fa-bell" style="color: white"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-envelope" style="color: blue"></i></a>
+                    <a class="nav-link" href="#"><i class="fas fa-envelope" style="color: white"></i></a>
                 </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link"><i @click="active = !active" class="fas fa-align-right" style="color: black"></i></a>
+                     <a href="#" class="nav-link"><i @click="active = !active" class="fas fa-align-right" style="color: white"></i></a>
                 </li>
 
                  <li class="nav-item ml-5">
-                     <a href="http://localhost:8081/#/" class="nav-link"><i class="fas fa-power-off" style="color: black"></i></a>
+                     <a href="http://localhost:8080/#/" class="nav-link"><i class="fas fa-power-off" style="color: white"></i></a>
                 </li>
             </ul>
         </nav>
@@ -46,22 +47,24 @@
 
 
         <div class="container w3-container w3-center w3-animate-bottom">
-            <div class="w3-animate-opacity">
+            <div class="w3-animate-opacity mt-3">
                 <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
                 <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.ebank.com</a></p>
             </div>
             <div class="row">
                 <div class="col mt-3">
                     <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
-                        <div class="container">
-                            <h1 class="display-4">Kyriakos Michael</h1>
+                        <div class="container-fluid">
+                            <h1 class="display-4">Jeniffer Lopez</h1>
                             <p class="lead">Welcome to your Verry Personal Banking</p>
-                            <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
-                            <p><i class="fas fa-money-check-alt fa-2x mt-2"></i> Current Balance <span><h2 style="color: green">${{ currentBalance }}</h2></span></p>
+                            <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -200px; left: -550px; width: 10%;" />
+                              <vs-divider color="success">Current Balance</vs-divider>
+                            <h1><span class="badge badge-secondary p-3">$20000</span></h1>
+                             <vs-divider color="dark">Actions</vs-divider>
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Invest on my Balance</button>
                             <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Subscription</button>
-                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Something</button>
+                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#exampleModal">e-Invoicing</button>
 
                         </div>
                     </div>
@@ -69,18 +72,6 @@
             </div>
 
              <vs-divider color="#ad289f">Account</vs-divider>
-                    <div class="centerx example-loading">
-                        <div
-                        class="fill-row-loading">
-                        <div
-                            :class="{'activeLoading':activeLoading}"
-                            @click="openLoading(type)"
-                            v-for="type in types" :key="type"
-                            :id="[`loading-${type}`]"
-                            class="vs-con-loading__container loading-example">
-                            </div>
-                        </div>
-                    </div>
 
             <!-- Modal -->
             <div class="modal p-5 fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -205,11 +196,10 @@
                     <div class="col">
                         <div class="card" style="border-radius: 50px;">
                             <div class="card-body">
-                                <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0]" :gradient="['#679436', '#E55454']">
+                                <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
                                 </bars>
-
                                 <div class="card-footer" style="background-color: transparent">
-                                    <p class="card-text"><small>An Overview of your Agresivness of spendings</small></p>
+                                    <p class="card-text">An Overview of your Agresivness of spendings</p>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +208,7 @@
             </div>
 
 
-  <vs-divider color="dark">History</vs-divider>
+  <vs-divider color="dark"> Latest History</vs-divider>
 
 
             <div class="row">
@@ -343,16 +333,6 @@ export default {
       active: false,
       app: {},
       errors: [],
-      types: [
-        "default",
-        "point",
-        "radius",
-        "corners",
-        "border",
-        "sound",
-        "material"
-      ],
-      activeLoading: false,
       users: [
         {
           id: 1,
@@ -372,9 +352,9 @@ export default {
     };
   },
   mounted() {
-    axios
+    const res = axios
       .get(`http://localhost:5000/token`)
-      .then(response => this.data, console.log("data" + this.data))
+      .then(response => console.log(response))
       .catch(e => {
         this.errors.push(e);
       });
@@ -385,7 +365,7 @@ export default {
 <style scoped>
 .main-navbar {
   border: 1px solid #edf2f4;
-  background-color: #ffffff;
+  background-color: #50514f;
 }
 
 .bet-links:hover {
