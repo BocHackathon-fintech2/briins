@@ -223,13 +223,25 @@
               <p class="text-monospace"><i>We are using Advance Machine Learning so we can Provide accurate Spending Descriptions</i></p>
                 <div class="card-group mt-5 shadow-lg text-center" style="border-radius: 50px">
                     <div class="card">
-                        <img class="card-img-top w-100 rounded mx-auto d-block" src="https://jobapplications.net/wp-content/uploads/starbucks-logo-icon.png" alt="Card image cap">
+                        <img class="card-img-top rounded mx-auto d-block" style="width: 40%" src="https://jobapplications.net/wp-content/uploads/starbucks-logo-icon.png" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Starbucks</h5>
                             <p class="card-text">Mostly Coffee and Snacks.</p>
                             <h2 class="card-text">- $200</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                            </div>
+                               <h5 class="card-title">Petrolina</h5>
+                            <p class="card-text">You actually driving in economy!</p>
+                            <h2 class="card-text">- $20</h2>
+                            <div class="card-footer" style="background-color: transparent">
+                                <p class="card-text"><small>Last updated 14 Hours ago</small></p>
+                            </div>
+                                <h5 class="card-title">MTN</h5>
+                            <p class="card-text">Pss, you can text a litle bit :)</p>
+                            <h2 class="card-text">- $70</h2>
+                            <div class="card-footer" style="background-color: transparent">
+                                <p class="card-text"><small>Last updated 14 Hours ago</small></p>
                             </div>
                         </div>
                     </div>
