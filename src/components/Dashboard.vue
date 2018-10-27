@@ -22,13 +22,12 @@
 
             <div class="row">
                 <div class="col mt-3">
-
                     <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
                         <div class="container">
                             <h1 class="display-4">Kyriakos Michael</h1>
                             <p class="lead">Welcome to your Verry Personal Banking</p>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
-                            <p>Current Balance <span><h4 style="color: green">${{ currentBalance }}</h4></span></p>
+                            <p><i class="fas fa-money-check-alt fa-3x"></i> Current Balance <span><h4 style="color: green">${{ currentBalance }}</h4></span></p>
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Bet on my Balance</button>
                             <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Subscription</button>
@@ -56,7 +55,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Amount</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
+                                            <input v-model="calculateBalance" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
@@ -93,9 +92,9 @@
                         <li class="nav-item">
                             <a class="nav-link bet-links" href="#" style="color: black">More Options</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link bet-links" href="#" style="color: black">Cancel my bet</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -251,6 +250,11 @@
                     isSubmit: false,
                     currentBalance: 2000
                 };
+            },
+            computed: {
+                currentBalance () {
+                   return this.currentBalance = this.currentBalance - 200
+                }
             },
             mounted() {
                 console.log("message");
