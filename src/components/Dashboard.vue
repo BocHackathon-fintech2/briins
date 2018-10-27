@@ -1,9 +1,7 @@
-<template>
+<template v-cloak>
     <div>
         <nav class="navbar fixed-top navbar-light main-navbar font-weight-bold">
             <a class="navbar-brand" href="#">Ebank</a>
-
-               <A href="#"><i @click="active = !active" class="fas fa-align-right"></i></a>
 
             <ul class="nav justify-content-center">
                 <li class="nav-item">
@@ -15,14 +13,46 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">My Account</a>
                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-bell" style="color: black"></i></a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">V.0.1 <span class="badge badge-secondary">Beta</span></a>
+                    <a class="nav-link" href="#"><i class="fas fa-envelope" style="color: blue"></i></a>
+                </li>
+                 <li class="nav-item">
+                     <a href="#" class="nav-link"><i @click="active = !active" class="fas fa-align-right" style="color: black"></i></a>
+                </li>
+
+                 <li class="nav-item ml-5">
+                     <a href="#" class="nav-link" :color="colorx" @click="popupActivo5=true" type="filled" ><i class="fas fa-power-off" style="color: black"></i></a>
                 </li>
             </ul>
         </nav>
 
-        <div class="container">
 
+                        <div class="centerx">
+                    <input v-model="colorx" type="color" name="" value="">
+                    <vs-button :color="colorx" @click="popupActivo5=true" type="filled">Open background popup</vs-button>
+
+                    <vs-popup
+                    style="color:rgb(255,255,255)"
+                    background-color="rgba(255,255,255,.6)"
+                    :background-color-popup="colorx" title="background" :active.sync="popupActivo5">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <br>
+                        <br>
+                        e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    </vs-popup>
+                </div>
+
+
+        <div class="container w3-container w3-center w3-animate-bottom">
+            <div class="w3-animate-opacity">
+                <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
+                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#">release.ebank.com</a></p>
+            </div>
             <div class="row">
                 <div class="col mt-3">
                     <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
@@ -40,6 +70,8 @@
                     </div>
                 </div>
             </div>
+
+             <vs-divider color="#ad289f">Account</vs-divider>
                     <div class="centerx example-loading">
                         <div
                         class="fill-row-loading">
@@ -58,7 +90,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Bet on my Balance</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Invest on my Balance</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -74,7 +106,7 @@
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = 1000">Submit</button>
+                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = calculateBalance">Submit</button>
                                     </form>
 
                                     <div class="card w-100 mt-2" v-if="isSubmit">
@@ -107,9 +139,6 @@
                         <li class="nav-item">
                             <a class="nav-link bet-links" href="#" style="color: black">More Options</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link bet-links" href="#" style="color: black">Cancel my bet</a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -159,6 +188,8 @@
                     <h1 class="display-4 text-center">Your Top Spendings</h1>
                 </div>
             </div>
+
+<vs-divider color="rgb(29, 222, 194)">Overview</vs-divider>
 
             <div class="row">
                 <div class="card-group mt-5 shadow-lg text-center" style="border-radius: 50px">
@@ -219,30 +250,61 @@
                 </div>
             </div>
 
+
+  <vs-divider color="dark">History</vs-divider>
+
+
             <div class="row">
                 <div class="col mb-5">
                     <div class="card">
                         <div class="card-body mt-5">
                             <h2>Latest History</h2>
                             <div class="row">
-                                <div class="col-4">
-                                    <div class="list-group" id="list-tab" role="tablist">
-                                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Today</a>
-                                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">This Week</a>
-                                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">This Month</a>
-                                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">In 2018</a>
-                                    </div>
-                                </div>
-                                <div class="col-8">
-                                    <div class="tab-content" id="nav-tabContent">
-                                        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">No Spendings Today</div>
-                                        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                                <div class="col">
+                              <div>
+                                    <vs-table stripe :data="users">
+                                        <template slot="header">
+                                        <h3>
+                                            Users
+                                        </h3>
+                                        </template>
+                                        <template slot="thead">
+                                        <vs-th>
+                                            Email
+                                        </vs-th>
+                                        <vs-th>
+                                            Name
+                                        </vs-th>
+                                        <vs-th>
+                                            Website
+                                        </vs-th>
+                                        <vs-th>
+                                            Nro
+                                        </vs-th>
+                                        </template>
 
-                                        </div>
-                                        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-                                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-                                    </div>
-                                </div>
+                                        <template slot-scope="{data}">
+                                        <vs-tr :key="indextr" v-for="(tr, indextr) in data" >
+                                            <vs-td :data="data[indextr].email">
+                                            {{data[indextr].email}}
+                                            </vs-td>
+
+                                            <vs-td :data="data[indextr].username">
+                                            {{data[indextr].name}}
+                                            </vs-td>
+
+                                            <vs-td :data="data[indextr].id">
+                                            {{data[indextr].website}}
+                                            </vs-td>
+
+                                            <vs-td :data="data[indextr].id">
+                                            {{data[indextr].id}}
+                                            </vs-td>
+                                        </vs-tr>
+                                        </template>
+                                    </vs-table>
+                              </div>
+  </div>
                             </div>
 
                         </div>
@@ -280,10 +342,7 @@
         Configurations
       </vs-sidebar-item>
       <vs-sidebar-item index="4" icon="account_box">
-        Perfile
-      </vs-sidebar-item>
-      <vs-sidebar-item index="5" >
-        Card
+        Profile
       </vs-sidebar-item>
 
       <div class="footer-sidebar" slot="footer">
@@ -295,14 +354,13 @@
 </template>
 
 <script>
-
 import Vue from "vue";
 import Bars from "vuebars";
 import axios from "axios";
 import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css";
-import VueRouter from 'vue-router';
-Vue.use(VueRouter)
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
 import "material-icons/iconfont/material-icons.css";
 Vue.use(Vuesax);
 Vue.use(Bars);
@@ -324,7 +382,79 @@ export default {
         "sound",
         "material"
       ],
-      activeLoading: false
+      activeLoading: false,
+      users: [
+        {
+          id: 1,
+          name: "Leanne Graham",
+          username: "Bret",
+          email: "Sincere@april.biz",
+          website: "hildegard.org"
+        },
+        {
+          id: 2,
+          name: "Ervin Howell",
+          username: "Antonette",
+          email: "Shanna@melissa.tv",
+          website: "anastasia.net"
+        },
+        {
+          id: 3,
+          name: "Clementine Bauch",
+          username: "Samantha",
+          email: "Nathan@yesenia.net",
+          website: "ramiro.info"
+        },
+        {
+          id: 4,
+          name: "Patricia Lebsack",
+          username: "Karianne",
+          email: "Julianne.OConner@kory.org",
+          website: "kale.biz"
+        },
+        {
+          id: 5,
+          name: "Chelsey Dietrich",
+          username: "Kamren",
+          email: "Lucio_Hettinger@annie.ca",
+          website: "demarco.info"
+        },
+        {
+          id: 6,
+          name: "Mrs. Dennis Schulist",
+          username: "Leopoldo_Corkery",
+          email: "Karley_Dach@jasper.info",
+          website: "ola.org"
+        },
+        {
+          id: 7,
+          name: "Kurtis Weissnat",
+          username: "Elwyn.Skiles",
+          email: "Telly.Hoeger@billy.biz",
+          website: "elvis.io"
+        },
+        {
+          id: 8,
+          name: "Nicholas Runolfsdottir V",
+          username: "Maxime_Nienow",
+          email: "Sherwood@rosamond.me",
+          website: "jacynthe.com"
+        },
+        {
+          id: 9,
+          name: "Glenna Reichert",
+          username: "Delphine",
+          email: "Chaim_McDermott@dana.io",
+          website: "conrad.com"
+        },
+        {
+          id: 10,
+          name: "Clementina DuBuque",
+          username: "Moriah.Stanton",
+          email: "Rey.Padberg@karina.biz",
+          website: "ambrose.net"
+        }
+      ]
     };
   },
   computed: {
