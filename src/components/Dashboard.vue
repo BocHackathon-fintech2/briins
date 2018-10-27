@@ -2,6 +2,9 @@
     <div>
         <nav class="navbar fixed-top navbar-light main-navbar font-weight-bold">
             <a class="navbar-brand" href="#">Ebank</a>
+
+               <A href="#"><i @click="active = !active" class="fas fa-align-right"></i></a>
+
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Kyriakos Michael</a>
@@ -28,7 +31,7 @@
                             <p class="lead">Welcome to your Verry Personal Banking</p>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -30px; left: -550px; width: 15% " />
                             <p><i class="fas fa-money-check-alt fa-3x"></i> Current Balance <span><h4 style="color: green">${{ currentBalance }}</h4></span></p>
-                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Bet on my Balance</button>
+                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Invest on my Balance</button>
                             <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Subscription</button>
                             <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Something</button>
@@ -37,6 +40,18 @@
                     </div>
                 </div>
             </div>
+                    <div class="centerx example-loading">
+                        <div
+                        class="fill-row-loading">
+                        <div
+                            :class="{'activeLoading':activeLoading}"
+                            @click="openLoading(type)"
+                            v-for="type in types" :key="type"
+                            :id="[`loading-${type}`]"
+                            class="vs-con-loading__container loading-example">
+                            </div>
+                        </div>
+                    </div>
 
             <!-- Modal -->
             <div class="modal p-5 fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,42 +250,136 @@
                 </div>
             </div>
         </div>
+
+
+         <div id="parentx">
+    <vs-sidebar parent="body" default-index="1"  color="primary" class="sidebarx" spacer v-model="active">
+
+      <div class="header-sidebar" slot="header">
+        <vs-avatar  size="70px" src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png"/>
+
+        <h4>
+          Kyriakos Michael
+        </h4>
+
+      </div>
+
+      <vs-sidebar-item index="1" icon="question_answer">
+        Dashboard
+      </vs-sidebar-item>
+
+      <vs-sidebar-item index="2" icon="gavel">
+        History
+      </vs-sidebar-item>
+
+      <vs-divider icon="person" position="left">
+        User
+      </vs-divider>
+
+      <vs-sidebar-item index="3" icon="verified_user">
+        Configurations
+      </vs-sidebar-item>
+      <vs-sidebar-item index="4" icon="account_box">
+        Perfile
+      </vs-sidebar-item>
+      <vs-sidebar-item index="5" >
+        Card
+      </vs-sidebar-item>
+
+      <div class="footer-sidebar" slot="footer">
+        <vs-button icon="reply" color="danger" class="text-center" type="flat">log out</vs-button>
+      </div>
+    </vs-sidebar>
+  </div>
     </div>
 </template>
 
 <script>
-    import Vue from "vue";
-    import Bars from "vuebars";
 
-    Vue.use(Bars);
+import Vue from "vue";
+import Bars from "vuebars";
+import axios from "axios";
+import Vuesax from "vuesax";
+import "vuesax/dist/vuesax.css";
 
-    export default {
-        data() {
-                return {
-                    isSubmit: false,
-                    currentBalance: 2000
-                };
-            },
-            computed: {
-                currentBalance () {
-                   return this.currentBalance = this.currentBalance - 200
-                }
-            },
-            mounted() {
-                console.log("message");
-            }
+import "material-icons/iconfont/material-icons.css";
+Vue.use(Vuesax);
+Vue.use(Bars);
+
+export default {
+  data() {
+    return {
+      isSubmit: false,
+      currentBalance: 2000,
+      active: false,
+      app: {},
+      errors: [],
+      types: [
+        "default",
+        "point",
+        "radius",
+        "corners",
+        "border",
+        "sound",
+        "material"
+      ],
+      activeLoading: false
     };
+  },
+  computed: {
+    currentBalance() {
+      return (this.currentBalance = this.currentBalance - 200);
+    }
+  },
+  created() {
+    axios
+      .post(
+        `https://sandbox-apis.bankofcyprus.com/df-boc-org-sb/sb/psd2/oauth2/token`,
+        {
+          body: {
+            client_id: `48bc5241-c3b2-4065-825c-316faa72fdb6`,
+            client_secret: `dY5aH2yY8fB6yH1hH7eO3bS6pK5qK4bH3oW5pU8yL5iY6kC8vJ`,
+            grant_type: `client_credentials`,
+            scope: `TPPOAuth2Security`
+          },
+          headers: {
+            "Content-type": "application/x-www-form-urlencoded"
+          }
+        }
+      )
+      .then(response => {
+        console.log(response);
+      })
+      .catch(e => {
+        this.errors.push(e);
+        console.log(errors);
+      });
+  },
+  methods: {
+    openLoading(type) {
+      this.activeLoading = true;
+      this.$vs.loading({
+        type: type
+      });
+      setTimeout(() => {
+        this.activeLoading = false;
+        this.$vs.loading.close();
+      }, 3000);
+    }
+  }
+};
 </script>
 
 <style scoped>
-    .main-navbar {
-        border: 1px solid #edf2f4;
-        background-color: #ffffff;
-    }
-    
-    .bet-links:hover {
-        font-size: 20px;
-         text-transform: uppercase !important;
-        color: #247BA0 !important;
-    }
+.main-navbar {
+  border: 1px solid #edf2f4;
+  background-color: #ffffff;
+}
+
+.bet-links:hover {
+  font-size: 20px;
+  text-transform: uppercase !important;
+  color: #247ba0 !important;
+}
 </style>
+

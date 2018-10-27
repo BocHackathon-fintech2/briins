@@ -10,9 +10,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
+    "material-icons": "^0.2.3",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.4",
-    "vuebars": "^0.1.3"
+    "vuebars": "^0.1.3",
+    "vuesax": "^3.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
