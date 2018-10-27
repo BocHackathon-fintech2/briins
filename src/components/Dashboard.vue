@@ -45,26 +45,29 @@
                     </vs-popup>
                 </div>
 
-
         <div class="container w3-container w3-center w3-animate-bottom">
-            <div class="w3-animate-opacity mt-3">
-                <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
-                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.ebank.com</a></p>
-            </div>
             <div class="row">
                 <div class="col mt-3">
                     <div class="jumbotron jumbotron-fluid shadow-lg bg-white">
                         <div class="container-fluid">
                             <h1 class="display-4">Jeniffer Lopez</h1>
                             <p class="lead">Welcome to your Verry Personal Banking</p>
+                             <div class="w3-animate-opacity mt-1">
+                <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
+                <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.ebank.com</a></p>
+                 <p style="font-size: 4px">© 2018 Zero Financial, Inc. All rights reserved.
+                    “Zero” and “Zerocard” are trademarks of Zero Financial, Inc., 230 California St, Suite 500, San Francisco, CA 94111.
+                    All text, graphics, audio files, code, downloadable material, and other works on this web site are the copyrighted works of Zero Financial, Inc. All Rights Reserved. Any unauthorized redistribution or reproduction of any copyrighted materials on this web site is strictly prohibited. Other product and company names are trademarks of their respective owners. This web site contains simulated images; actual appearance may vary.
+                    </p>
+            </div>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -200px; left: -550px; width: 10%;" />
                               <vs-divider color="success">Current Balance</vs-divider>
                             <h1><span class="badge badge-secondary p-3">$20000</span></h1>
                              <vs-divider color="dark">Actions</vs-divider>
-                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#exampleModal">Invest on my Balance</button>
-                            <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Instant Loan</button>
-                            <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#exampleModal">Subscription</button>
-                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#exampleModal">e-Invoicing</button>
+                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal">Invest on my Balance</button>
+                            <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#instantModal">Instant Loan</button>
+                            <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal">Subscription</button>
+                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal">e-Invoicing</button>
 
                         </div>
                     </div>
@@ -73,8 +76,8 @@
 
              <vs-divider color="#ad289f">Account</vs-divider>
 
-            <!-- Modal -->
-            <div class="modal p-5 fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Invest Modal -->
+            <div class="modal p-5 fade" id="investModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -115,7 +118,82 @@
                 </div>
             </div>
 
-                <vs-tabs vs-alignment="fixed">
+
+
+            <!-- Instant Loan Modal -->
+            <div class="modal p-5 fade" id="instantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Instant Loan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-success p-3">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+                <!-- Subsrciption Modal -->
+            <div class="modal p-5 fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Subscription</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                               
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-success p-3">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- e-invoicing Modal -->
+            <div class="modal p-5 fade" id="invoicingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">e-Invoicing</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                               
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-success p-3">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <vs-tabs vs-alignment="fixed" class="active">
                         <vs-tab vs-label="Active Bets">
                             <div>
                                  <vs-list>
@@ -206,6 +284,30 @@
                     </div>
                 </div>
             </div>
+
+            <div id="app">
+    <h2>Spendings Analytics</h2>
+    <!-- id - Every chart must have an id. -->
+    <!-- title - The title displayed on the chart -->
+    <!-- type - The type of chart: line, bar, percent, pie, or axis-mixed. -->
+    <!-- labels - Names for each value on the x-axis. -->
+    <!-- height- Optional: How tall the chart should be. -->
+    <!-- colors - Separate colors for each dataset. -->
+    <!-- lineOptions - Additional options for how to display line charts. See docs. -->
+    <!-- datasets - An array of objects containing names and values for each data set. -->
+    <vue-frappe
+      id="my-chart-id"
+      type="line"
+      :labels="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']"
+      :height="350"
+      :colors="['#008F68', '#FAE042']"
+      :lineOptions="{regionFill: 1}"
+      :data-sets="[
+        {name: '2017', values: benedictsWeight2017},
+        {name: '2018', values: benedictsWeight2018}
+      ]"></vue-frappe>
+  </div>
+
 
 
   <vs-divider color="dark"> Latest History</vs-divider>
@@ -317,6 +419,13 @@ import axios from "axios";
 import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css";
 import VueRouter from "vue-router";
+
+import VueFrappe from "vue2-frappe";
+Vue.use(VueFrappe);
+
+import VueCharts from "vue-chartjs";
+import { Bar, Line } from "vue-chartjs";
+
 Vue.use(VueRouter);
 import "material-icons/iconfont/material-icons.css";
 Vue.use(Vuesax);
@@ -325,6 +434,34 @@ Vue.use(Bars);
 export default {
   data() {
     return {
+      benedictsWeight2017: [
+        480,
+        485,
+        491,
+        489,
+        485,
+        490,
+        497,
+        510,
+        512,
+        521,
+        530,
+        545
+      ],
+      benedictsWeight2018: [
+        540,
+        575,
+        570,
+        555,
+        572,
+        580,
+        585,
+        587,
+        588,
+        590,
+        592,
+        590
+      ],
       colorx: "#4a5153",
       data: "",
       popupActivo5: false,
