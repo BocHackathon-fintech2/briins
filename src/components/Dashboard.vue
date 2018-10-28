@@ -185,7 +185,7 @@
 
 
                 <vs-tabs vs-alignment="fixed" class="active">
-                        <vs-tab vs-label="Active Bets">
+                        <vs-tab vs-label="Active Investments">
                             <div>
                                  <vs-list>
                                     <vs-list-header icon="supervisor_account" title="Active"></vs-list-header>
@@ -274,19 +274,8 @@
                     <div class="col">
                          <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
                         </bars>
-
-                         <bars :data="[6, 1, 8, 7, 9, 9, 4, 2, 0, 10,]" :gradient="['#679436', '#E55454']">
-                        </bars>
-
-                         <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
-                        </bars>
-
-                         <bars :data="[1, 2, 5, 9, 5, 10, 3, 5, 2, 5, 1, 8, 2, 9, 0,2,4,10,4,5,6,7,1,5]" :gradient="['#679436', '#E55454']">
-                        </bars>
-
                     </div>
                      
-
                     <div class="col">
                                  <trend
                             :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
@@ -294,27 +283,6 @@
                             auto-draw
                             smooth>
                             </trend>
-                                <trend
-                            :data="[6, 1, 8, 7, 9, 9, 4, 2, 0, 10,]"
-                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-                            auto-draw
-                            smooth>
-                            </trend>
-
-                               <trend
-                            :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-                            auto-draw
-                            smooth>
-                            </trend>
-
-                               <trend
-                            :data="[0, 2, 5, 9, 5, 10, 3, 5, 0, 0, 1, 8, 2, 9, 0]"
-                            :gradient="['#6fa8dc', '#42b983', '#2c3e50']"
-                            auto-draw
-                            smooth>
-                            </trend>
-
                         </div>
                 </div>
             </div>

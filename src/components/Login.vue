@@ -39,9 +39,8 @@ export default {
   mounted() {
     axios
       .get("http://localhost:5000/getaccesstoken")
-      //   .then(response => (this.data = response.data))
-      .then(response => console.log(response))
-      .then()
+        .then(response => (this.data = response.data))
+      .then(response => console.log(this.data))
 
       //   .then((location.href = "http://localhost:8080/#/main"))
 
