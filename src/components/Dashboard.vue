@@ -60,15 +60,19 @@
                 <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.zero.co</a></p>
             </div>
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -200px; left: -550px; width: 10%;" />
-                              <vs-divider color="success">Current Balance</vs-divider>
-                            <h1><span class="badge badge-secondary p-3">$200000</span></h1>
+                              <vs-divider color="success"><i class="fas fa-arrow-left"></i> Current Balance  |  Available Balance <i class="fas fa-arrow-right"></i></vs-divider>
+                              <div class="d-inline-flex">
+                               <h1><span class="badge badge-secondary p-3" style="background-color: #1487B3">€ 200000</span></h1>
+                               <h1>&nbsp; &nbsp; &nbsp; </h1>
+                               <h1><span class="badge badge-secondary p-3" style="background-color: green">€ 100000</span></h1>
+                              </div>
                              <vs-divider color="dark">Actions</vs-divider>
                              <div class="row">
                              <div class="col-lg">
-                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal">Invest on my Balance</button>
-                            <button type="button" class="btn btn-outline-info p-4 ml-3" @click="openAlert('dark')" color="dark">Instant Loan</button>
-                            <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal">Subscription</button>
-                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal">e-Invoicing</button>
+                            <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal"><i class="fas fa-hand-holding-usd"></i> Invest on my Balance</button>
+                            <button type="button" class="btn btn-outline-info p-4 ml-3" @click="$vs.notify({time:8000,}),openAlert('dark')" color="dark"><i class="fas fa-money-check"></i> Instant Loan</button>
+                            <button type="button" class="btn btn-outline-danger p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal"><i class="fas fa-play"></i> Subscription</button>
+                            <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal"><i class="fas fa-file-invoice-dollar"></i> e-Invoicing</button>
                              </div>
                             </div>
                         </div>
@@ -91,11 +95,11 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col text-left">
-                                    <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">${{ currentBalance }}</span></h1>
+                                    <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">€{{ currentBalance }}</span></h1>
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Amount</label>
-                                            <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in $$$">
+                                            <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in €€€">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
@@ -133,13 +137,21 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                               
+                               <div class="col">
+                                   <h5>Based on your Recent History we identify that your Average Fees on Banking Operations are:</h5>
+                                   <h4>€250 Monthly</h4>
+
+                                    <p>We Offer a Subscription Model that its a Monthly Fee based on your Recent History</p>
+                                    <img class="w-50" src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/22.png" /> 
+                                    <br>
+                                    <button type="button" class="btn btn-outline-danger p-4">Subscribe now</button>                             
+                               </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-outline-success p-3">Save</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -172,9 +184,9 @@
                             <div>
                                  <vs-list>
                                     <vs-list-header icon="supervisor_account" title="Active"></vs-list-header>
-                                    <vs-list-item icon="check" title="$1000" subtitle="An excellent Investment"></vs-list-item>
+                                    <vs-list-item icon="check" title="€1000" subtitle="An excellent Investment"></vs-list-item>
                                     <p>3 Days Ago</p>
-                                    <vs-list-item icon="check" title="$2000" subtitle="This is for your Personal Car Loan"></vs-list-item>  
+                                    <vs-list-item icon="check" title="€2000" subtitle="This is for your Personal Car Loan"></vs-list-item>  
                                     <p>57 Days Ago</p>                              
                                 </vs-list>
                             </div>
@@ -200,28 +212,27 @@
             </div>
 
 <vs-divider color="rgb(29, 222, 194)">Overview</vs-divider>
-
+            <p><i>We are using Advance Machine Learning so we can Provide accurate Spending Descriptions</i></p>
             <div class="row">
-              <p class="text-monospace"><i>We are using Advance Machine Learning so we can Provide accurate Spending Descriptions</i></p>
                 <div class="card-group mt-5 shadow-lg text-center" style="border-radius: 50px">
                     <div class="card">
                         <img class="card-img-top rounded mx-auto d-block" style="width: 40%" src="https://jobapplications.net/wp-content/uploads/starbucks-logo-icon.png" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">Starbucks</h5>
                             <p class="card-text">Mostly Coffee and Snacks.</p>
-                            <h2 class="card-text">- $200</h2>
+                            <h2 class="card-text">- €200</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 3 mins ago</small></p>
                             </div>
                                <h5 class="card-title">Petrolina</h5>
                             <p class="card-text">You actually driving in economy!</p>
-                            <h2 class="card-text">- $20</h2>
+                            <h2 class="card-text">- €20</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 14 Hours ago</small></p>
                             </div>
                                 <h5 class="card-title">MTN</h5>
                             <p class="card-text">Pss, you can text a litle bit :)</p>
-                            <h2 class="card-text">- $70</h2>
+                            <h2 class="card-text">- €70</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 14 Hours ago</small></p>
                             </div>
@@ -233,7 +244,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Zara</h5>
                             <p class="card-text">Mostly shoes</p>
-                            <h2 class="card-text">- $500</h2>
+                            <h2 class="card-text">- €500</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 20 mins ago</small></p>
                             </div>
@@ -244,7 +255,7 @@
                         <div class="card-body mt-5">
                             <h5 class="card-title">Apple</h5>
                             <p class="card-text">Congrats! You bought a macbook pro!</p>
-                            <h2 class="card-text">- $1000</h2>
+                            <h2 class="card-text">- €1000</h2>
                             <div class="card-footer" style="background-color: transparent">
                                 <p class="card-text"><small>Last updated 3 hrs ago</small></p>
                             </div>
@@ -315,14 +326,11 @@
                                 <div class="col">
                               <div>
                                     <vs-table stripe :data="users">
-                                        <template slot="header">
-                                        <h3>
-                                            Users
-                                        </h3>
+                                        <template slot="header">                                       
                                         </template>
                                         <template slot="thead">
                                         <vs-th>
-                                            Email
+                                            Name
                                         </vs-th>
                                         <vs-th>
                                             Name
@@ -341,17 +349,12 @@
                                             {{data[indextr].email}}
                                             </vs-td>
 
-                                            <vs-td :data="data[indextr].username">
-                                            {{data[indextr].name}}
-                                            </vs-td>
 
                                             <vs-td :data="data[indextr].id">
                                             {{data[indextr].website}}
                                             </vs-td>
 
-                                            <vs-td :data="data[indextr].id">
-                                            {{data[indextr].id}}
-                                            </vs-td>
+                                            
                                         </vs-tr>
                                         </template>
                                     </vs-table>
@@ -383,7 +386,16 @@
       </vs-sidebar-item>
 
       <vs-sidebar-item index="2" icon="gavel">
-        History
+        Invest
+      </vs-sidebar-item>
+       <vs-sidebar-item index="3" icon="gavel">
+        Instant Loan
+      </vs-sidebar-item>
+         <vs-sidebar-item index="4" icon="gavel">
+        Subscription
+      </vs-sidebar-item>
+       <vs-sidebar-item index="4" icon="gavel">
+        e-Invoicing
       </vs-sidebar-item>
 
       <vs-divider icon="person" position="left">
@@ -473,17 +485,17 @@ export default {
       users: [
         {
           id: 1,
-          name: "Leanne Graham",
+          name: "Coffee house",
           username: "Bret",
-          email: "Sincere@april.biz",
-          website: "hildegard.org"
+          email: "coffee house",
+          website: "Ice cafe latte"
         },
         {
           id: 2,
           name: "Ervin Howell",
           username: "Antonette",
-          email: "Shanna@melissa.tv",
-          website: "anastasia.net"
+          email: "Local store",
+          website: "Pills"
         }
       ]
     };
@@ -502,15 +514,16 @@ export default {
       this.$vs.dialog({
         color:this.colorAlert,
         title: 'Instant Loan',
-        text: 'Your Account has been monitoring and we can now confirm you are oblicable of taking the Instant Loan. Please Accept your funds on this Dialog',
-        accept:this.acceptAlert
+        text: 'Your Account has been monitoring and we can now confirm you are obligable of taking the Instant Loan. Please Accept your funds on this Dialog',
+        accept:this.acceptAlert,
+        time: 5
       })
     },
     acceptAlert(){
       this.$vs.notify({
         color:this.colorAlert,
         title:'Funds Accepted',
-        text:'Your Account has been credited with the Amount of $1000'
+        text:'Your Account has been credited with the Amount of €1000'
       })
     },
     getColorRandom(){
@@ -526,7 +539,7 @@ export default {
 <style scoped>
 .main-navbar {
   border: 1px solid #edf2f4;
-  background-color: #50514f;
+  background-color: #343a40;
 }
 
 .bet-links:hover {
