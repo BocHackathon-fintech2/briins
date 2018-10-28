@@ -54,7 +54,7 @@
                         <div class="container-fluid">
                             <h1 class="display-4">Jeniffer Lopez</h1>
                             <p class="lead">Welcome to your Zero Banking</p>
-                            <p>Last Login: 27/10/2018</p>
+                            <p>Last Login: 27/10/2018</p><span style="color: purple" v-if="isSubscriber">Account Type: Subscriber</span>
                              <div class="w3-animate-opacity mt-1">
                 <a class="nav-link disabled" href="#">V.0.3 <span class="badge badge-secondary">Beta</span></a>
                 <p style="font-size: 9px" class="text-muted">For more information please visit our official release site: <a href="#" style="color: blue">release.zero.co</a></p>
@@ -62,9 +62,9 @@
                             <img src="https://png2.kisspng.com/20180326/brw/kisspng-computer-icons-computer-software-random-icons-5ab9ab4ce2f414.1297504215221174529296.png" style="position:relative; z-index: 10; top: -200px; left: -550px; width: 10%;" />
                               <vs-divider color="success"><i class="fas fa-arrow-left"></i> Current Balance  |  Available Balance <i class="fas fa-arrow-right"></i></vs-divider>
                               <div class="d-inline-flex">
-                               <h1><span class="badge badge-secondary p-3" style="background-color: #1487B3">€ 200000</span></h1>
+                               <h1><span class="badge badge-secondary p-3" style="background-color: #1487B3">€ {{ currentBalance }}</span></h1>
                                <h1>&nbsp; &nbsp; &nbsp; </h1>
-                               <h1><span class="badge badge-secondary p-3" style="background-color: green">€ 100000</span></h1>
+                               <h1><span class="badge badge-secondary p-3" style="background-color: green">€ {{ availableBalance }}</span></h1>
                               </div>
                              <vs-divider color="dark">Actions</vs-divider>
                              <div class="row">
@@ -93,33 +93,37 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">
-                                <div class="col text-left">
-                                    <h1>Current Balance <span class="badge badge-secondary p-3" style="border-radius: 50px;">€{{ currentBalance }}</span></h1>
+                            <div class="row font-weight-bold">
+                                <div class="col text-center">
+                                <div class="d-inline-flex">
+                                    
+                               <h3><p>Current Balance</p><span class="badge badge-secondary p-2" style="background-color: #1487B3">€ {{ currentBalance }}</span></h3>
+                               <h1>&nbsp; &nbsp; &nbsp; </h1>                             
+                               <h3><p>Available Balance</p><span class="badge badge-secondary p-2" style="background-color: green">€ {{ availableBalance }}</span></h3>
+                              </div>
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Amount</label>
-                                            <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in €€€">
+                                            <input  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount in €">
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = calculateBalance">Invest</button>
+                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; availableBalance = availableBalance - 1000; isInvest = !isInvest">Invest</button>
                                     </form>
 
                                     <div class="card w-100 mt-2" v-if="isSubmit">
                                         <div class="card-body shadow-lg">
                                             <p class="card-title">You have Succesfully bet on your Personal Account!</p>
-                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <!-- <div class="modal-footer">
                             <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-outline-success p-3">Save</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -140,11 +144,11 @@
                                <div class="col">
                                    <h5>Based on your Recent History we identify that your Average Fees on Banking Operations are:</h5>
                                    <h4>€250 Monthly</h4>
-
                                     <p>We Offer a Subscription Model that its a Monthly Fee based on your Recent History</p>
+                                    <p>Claim yours Now</p>
                                     <img class="w-50" src="https://cdn0.iconfinder.com/data/icons/iconico-3/1024/22.png" /> 
                                     <br>
-                                    <button type="button" class="btn btn-outline-danger p-4">Subscribe now</button>                             
+                                    <button type="button" @click="isSubscriber = !isSubscriber" data-dismiss="modal" class="btn btn-outline-danger p-4">Subscribe now</button>                             
                                </div>
                             </div>
                         </div>
@@ -167,7 +171,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="row">                               
+                            <div class="row">   
+                                <p v-if="isInvest"></p>                            
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -442,10 +447,11 @@ Vue.use(Bars);
 export default {
   data() {
     return {
-          colorAlert:'primary',
-    titleAlert:'Alert',
-    activeAlert:false,
-    valueInput:'',
+      isSubscriber: false,
+      colorAlert: "primary",
+      titleAlert: "Alert",
+      activeAlert: false,
+      valueInput: "",
       benedictsWeight2017: [
         480,
         485,
@@ -475,10 +481,12 @@ export default {
         590
       ],
       colorx: "#4a5153",
-      data: "",
+      data: null,
       popupActivo5: false,
       isSubmit: false,
-      currentBalance: 2000,
+      isInvest: false,
+      currentBalance: 1000,
+      availableBalance: 1000,
       active: false,
       app: {},
       errors: [],
@@ -500,38 +508,35 @@ export default {
       ]
     };
   },
-  mounted() {
-    const res = axios
-      .get(`http://localhost:5000/token`)
-      .then(response => console.log(response))
-      .catch(e => {
-        this.errors.push(e);
-      });
-  },
-  methods : {
-        openAlert(color){
-      this.colorAlert = color || this.getColorRandom()
+
+  methods: {
+    openAlert(color) {
+      this.colorAlert = color || this.getColorRandom();
       this.$vs.dialog({
-        color:this.colorAlert,
-        title: 'Instant Loan',
-        text: 'Your Account has been monitoring and we can now confirm you are obligable of taking the Instant Loan. Please Accept your funds on this Dialog',
-        accept:this.acceptAlert,
+        color: this.colorAlert,
+        title: "Instant Loan",
+        text:
+          "Your Account has been monitoring and we can now confirm you are obligable of taking the Instant Loan. Please Accept your funds on this Dialog",
+        accept: this.acceptAlert,
         time: 5
-      })
+      });
     },
-    acceptAlert(){
+    acceptAlert() {
       this.$vs.notify({
-        color:this.colorAlert,
-        title:'Funds Accepted',
-        text:'Your Account has been credited with the Amount of €1000'
-      })
+        color: this.colorAlert,
+        title: "Funds Accepted",
+        text: "Your Account has been credited with the Amount of €1000"
+      });
     },
-    getColorRandom(){
+    getColorRandom() {
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
-      return `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
-    },
+      return `rgb(${getRandomInt(0, 255)},${getRandomInt(
+        0,
+        255
+      )},${getRandomInt(0, 255)})`;
+    }
   }
 };
 </script>
