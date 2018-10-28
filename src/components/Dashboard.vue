@@ -70,7 +70,7 @@
                              <div class="row">
                              <div class="col-lg">
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal"><i class="fas fa-hand-holding-usd"></i> Invest on my Balance</button>
-                            <button type="button" class="btn btn-outline-info p-4 ml-3" @click="$vs.notify({time:8000,}),openAlert('dark')" color="dark"><i class="fas fa-money-check"></i> Instant Loan</button>
+                            <button type="button" class="btn btn-outline-info p-4 ml-3" @click="$vs.notify({time:8000,}),openAlert('dark'); currentBalance = currentBalance + 1000; availableBalance = availableBalance - 1000`" color="dark"><i class="fas fa-money-check"></i> Instant Loan</button>
                             <button type="button" class="btn btn-outline-danger p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal"><i class="fas fa-play"></i> Subscription</button>
                             <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal"><i class="fas fa-file-invoice-dollar"></i> e-Invoicing</button>
                              </div>
