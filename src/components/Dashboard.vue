@@ -44,6 +44,9 @@
                     </vs-popup>
                 </div>
 
+
+
+
         <div class="container-fluid w3-container w3-center w3-animate-bottom">
             <div class="row">
                 <div class="col mt-3">
@@ -63,7 +66,7 @@
                              <div class="row">
                              <div class="col-lg">
                             <button type="button" class="btn btn-outline-dark p-4" data-toggle="modal" data-target="#investModal">Invest on my Balance</button>
-                            <button type="button" class="btn btn-outline-info p-4 ml-3" data-toggle="modal" data-target="#instantModal">Instant Loan</button>
+                            <button type="button" class="btn btn-outline-info p-4 ml-3" @click="openAlert('dark')" color="dark">Instant Loan</button>
                             <button type="button" class="btn btn-outline-primary p-4 ml-3" data-toggle="modal" data-target="#subscriptionModal">Subscription</button>
                             <button type="button" class="btn btn-outline-success p-4 ml-3" data-toggle="modal" data-target="#invoicingModal">e-Invoicing</button>
                              </div>
@@ -96,7 +99,7 @@
                                             <small id="emailHelp" class="form-text text-muted">We'll never share your personal amount with anyone else.</small>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = calculateBalance">Submit</button>
+                                        <button type="submit" class="btn btn-primary" @click="isSubmit = !isSubmit; currentBalance = calculateBalance">Invest</button>
                                     </form>
 
                                     <div class="card w-100 mt-2" v-if="isSubmit">
@@ -117,28 +120,7 @@
                 </div>
             </div>
 
-            <!-- Instant Loan Modal -->
-            <div class="modal p-5 fade" id="instantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Instant Loan</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary p-3" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-outline-success p-3">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
                 <!-- Subsrciption Modal -->
             <div class="modal p-5 fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -448,6 +430,10 @@ Vue.use(Bars);
 export default {
   data() {
     return {
+          colorAlert:'primary',
+    titleAlert:'Alert',
+    activeAlert:false,
+    valueInput:'',
       benedictsWeight2017: [
         480,
         485,
@@ -509,6 +495,30 @@ export default {
       .catch(e => {
         this.errors.push(e);
       });
+  },
+  methods : {
+        openAlert(color){
+      this.colorAlert = color || this.getColorRandom()
+      this.$vs.dialog({
+        color:this.colorAlert,
+        title: 'Instant Loan',
+        text: 'Your Account has been monitoring and we can now confirm you are oblicable of taking the Instant Loan. Please Accept your funds on this Dialog',
+        accept:this.acceptAlert
+      })
+    },
+    acceptAlert(){
+      this.$vs.notify({
+        color:this.colorAlert,
+        title:'Funds Accepted',
+        text:'Your Account has been credited with the Amount of $1000'
+      })
+    },
+    getColorRandom(){
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+      return `rgb(${getRandomInt(0,255)},${getRandomInt(0,255)},${getRandomInt(0,255)})`
+    },
   }
 };
 </script>
