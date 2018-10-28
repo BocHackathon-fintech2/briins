@@ -22,7 +22,7 @@
                                  <small id="passwordHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
                             </div>  
                             <div class="mt-5 mb-5" >                         
-                            <a  style="background-color: blue; padding: 15px;margin-left: 400px; margin-right: 400px; color: white" href="https://sandbox-apis.bankofcyprus.com/df-boc-org-sb/sb/psd2/oauth2/authorize?response_type=code&redirect_uri=http://localhost&scope=UserOAuth2Security&client_id=48bc5241-c3b2-4065-825c-316faa72fdb6&subscriptionid=Subid000001-1540727285999">LOGIN</a>
+                            <a  style="background-color: blue; padding: 15px;margin-left: 400px; margin-right: 400px; color: white" href="http://localhost:8080/#/main">LOGIN</a>
                             </div>
                             </form>
                     </div>

@@ -113,7 +113,7 @@
 
                                     <div class="card w-100 mt-2" v-if="isSubmit">
                                         <div class="card-body shadow-lg">
-                                            <p class="card-title">You have Succesfully bet on your Personal Account!</p>
+                                            <p class="card-title">You have Succesfully invest on your Personal Account!</p>
                                         </div>
                                     </div>
 
@@ -172,7 +172,10 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">   
-                                <p v-if="isInvest"></p>                            
+                                <p v-if="isInvest">
+                                    <p>Invest Amount: 1000 Euros</p>    <br>
+                                    <p>When: 1 Minute ago</p>
+                                </p>                            
                             </div>
                         </div>
                         <div class="modal-footer">
